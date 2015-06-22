@@ -4,7 +4,7 @@ end
 
 def caesar_cipher(user_string, shift)
 	abc_array = ('a'..'z').to_a
-	shift -= abc_array.size if shift > abc_array.size
+	shift = shift - abc_array.size * (shift / abc_array.size) #allow values greater than 26
 	new_user_string = user_string.dup
 	user_string.scan(/[a-z]/i) do |char|
 		letter_num = abc_array.find_index(char.downcase)
@@ -18,7 +18,7 @@ def caesar_cipher(user_string, shift)
 end
 
 puts "New string #{caesar_cipher("!av I123  <>?k", 2)}"
-#"!qrS123<>?v"
+#"!yt G123  <>?i"
 
 puts "New string: #{caesar_cipher("Abcdefg!", 1)}"
 #"Zabcdef!"
