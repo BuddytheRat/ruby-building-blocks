@@ -11,7 +11,7 @@ module Enumerable
 		i = 1
 		self.my_each do |item|
 			yield(i, item)
-			i+= 1
+			i += 1
 		end
 		return self
 	end
