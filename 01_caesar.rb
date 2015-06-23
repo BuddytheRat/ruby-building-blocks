@@ -8,9 +8,8 @@ def caesar_cipher(user_string, shift)
 	new_user_string = user_string.dup
 	user_string.scan(/[a-z]/i) do |char|
 		letter_num = abc_array.find_index(char.downcase)
-		puts "#{letter_num}: '#{char}'"
 		letter_num -= shift
-		new_char = abc_array[letter_num]
+		new_char = abc_array[letter_num].dup
 		new_char.upcase! if upcase_char?(char)
 		new_user_string[$~.offset(0)[0]] = new_char
 	end
@@ -24,4 +23,4 @@ puts "New string: #{caesar_cipher("Abcdefg!", 1)}"
 #"Zabcdef!"
 
 puts "New string: #{caesar_cipher("What a string!", 5)}"
-#Mysteriously find_index returns nil on the 'r'...
+#'Rcvo v nomdib!'
